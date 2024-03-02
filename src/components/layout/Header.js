@@ -1,5 +1,5 @@
 'use client';
-// import {CartContext} from "@/components/AppContext";
+import {CartContext} from "../../components/AppContext";
 import Bars2 from "../../components/icons/Bars2";
 import ShoppingCart from "../../components/icons/ShoppingCart";
 import {signOut, useSession} from "next-auth/react";
@@ -39,7 +39,7 @@ export default function Header() {
   const status = session?.status;
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email;
-  // const {cartProducts} = useContext(CartContext);
+  const {cartProducts} = useContext(CartContext);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   if (userName && userName.includes(' ')) {
     userName = userName.split(' ')[0];
@@ -53,11 +53,11 @@ export default function Header() {
         <div className="flex gap-8 items-center">
           <Link href={'/cart'} className="relative">
             <ShoppingCart />
-            {/* {cartProducts?.length > 0 && (
+            {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
             {cartProducts.length}
           </span>
-            )} */}
+            )}
           </Link>
           <button
             className="p-1 border"
@@ -91,11 +91,11 @@ export default function Header() {
           <AuthLinks status={status} userName={userName} />
           <Link href={'/cart'} className="relative">
             <ShoppingCart />
-            {/* {cartProducts?.length > 0 && (
+            {cartProducts?.length > 0 && (
               <span className="absolute -top-2 -right-4 bg-primary text-white text-xs py-1 px-1 rounded-full leading-3">
             {cartProducts.length}
           </span>
-            )} */}
+            )}
           </Link>
         </nav>
       </div>
