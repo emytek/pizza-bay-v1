@@ -1,4 +1,5 @@
 import {AppProvider} from "../components/AppContext";
+import { CartProvider } from "@/components/AddCartContext";
 import Header from "../components/layout/Header";
 import { Roboto } from 'next/font/google'
 import './globals.css'

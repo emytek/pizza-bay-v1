@@ -2,7 +2,7 @@ import {cartProductPrice} from "../../components/AppContext";
 import Trash from "../../components/icons/Trash";
 import Image from "next/image";
 
-export default function CartProduct({product,onRemove}) {
+export default function CartProduct({product,onRemove, index}) {
   return (
     <div className="flex items-center gap-4 border-b py-4">
       <div className="w-24">
@@ -28,7 +28,7 @@ export default function CartProduct({product,onRemove}) {
       <div className="text-lg font-semibold">
         ${cartProductPrice(product)}
       </div>
-      {!!onRemove && (
+      {/* {!!onRemove && ( */}
         <div className="ml-2">
           <button
             type="button"
@@ -37,7 +37,7 @@ export default function CartProduct({product,onRemove}) {
             <Trash />
           </button>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }
